@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>shopping cart</title>
+    <script defer src="assets/js/app.js"></script>
 </head>
+
 <body>
-    
+    <h1>Add product</h1>
+    <form id="cartForm">
+        <label>Name of the product</label>
+        <input type="text" id="name" required></input>
+        <br> <br>
+        <label>Price of the product</label>
+        <input type="number" id="price" required></input>
+        <br><br>
+        <select required id="option">
+            <option value="0">Drinks</option>
+            <option value="1">Meat</option>
+            <option value="2">Dairy</option>
+            <option value="3">Snacks</option>
+            <option value="4">Basic</option>
+        </select>
+        <br><br>
+        <input type="text" id="url">url of photo</input>
+        <button onclick="addRow(event)">Add product</button>
+    </form>
+   
+<br><br>
+<h1>My Cart</h1>
+<table>
+    <thead>
+        <tr>
+            <th>name of the product &nbsp;&nbsp;</th>
+            <th>price of the product &nbsp;&nbsp;</th>
+            <th>category of the product &nbsp;&nbsp;</th>
+            <th>image of the product &nbsp;&nbsp;</th>
+        <th>delete button</th>
+        </tr>
+    </thead>
+    <tbody id="table">
+
+    </tbody>
+</table>
 </body>
+
 </html>
