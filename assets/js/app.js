@@ -1,16 +1,25 @@
 let numberRows = 0
-let stringOfData = []
+const stringOfData = []
 
 function getInformation() {
-    const name = document.getElementById(`name`).value
-    const price = document.getElementById(`price`).value
-    const chosenOption = document.getElementById(`option`).value
-    const options = [`Drinks`, `Meat`, `Dairy`, `Snacks`, `Basic`]
+    const name = document.getElementById("name").value
+    const price = document.getElementById("price").value
+    const chosenOption = document.getElementById("option").value
+    const options = ["failed", "Drinks", "Meat", "Dairy", "Snacks", "Basic"]
     const option = options[chosenOption]
-    const url = document.getElementById(`url`).value
+    const url = document.getElementById("url").value
     const numRows = numberRows++
-    if (name === `` || price === `` || url === ``) {
-        return alert("you didn`t enter a field")
+    if (name === "") {
+        return alert("you didn`t enter the name field")
+    }
+    if (option === "failed") {
+        return alert("you didn`t enter the category field")
+    }
+    if (price === "") {
+        return alert("you didn`t enter the price field")
+    }
+    if (url === "") {
+        return alert("you didn`t enter the url field")
     }
     return {
         name: name,
@@ -34,13 +43,13 @@ function generateHTML(data) {
 }
 
 function renderHTML(newHTML) {
-    const table = document.getElementById('table')
+    const table = document.getElementById("table")
     table.innerHTML += newHTML
     stringOfData.push(newHTML)
 }
 
 function clearForm() {
-    const cartForm = document.getElementById('cartForm')
+    const cartForm = document.getElementById("cartForm")
     cartForm.reset()
 }
 
@@ -53,6 +62,6 @@ function addRow(event) {
 }
 
 function deleteRow(numRows) {
-    stringOfData[numRows]= `&nbsp;`
-    document.getElementById(`table`).innerHTML= stringOfData
+    stringOfData[numRows] = "&nbsp;"
+    document.getElementById("table").innerHTML = stringOfData
 }
